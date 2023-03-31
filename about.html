@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>About Us</title>
+	<style>
+		body {
+			font-size: 2em;
+			text-align: center;
+		}
+		nav {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 1em;
+		}
+		nav a {
+			font-size: 1.5em;
+			margin: 0 1em;
+			text-decoration: none;
+			color: black;
+			transition: color 0.2s;
+		}
+		nav a:hover {
+			color: #4CAF50;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<a href="index.html">Home</a>
+		<a href="about.html">About</a>
+		<a href="contact.html">Contact</a>
+	</nav>
+	<main>
+		<!-- add a toggle button for dark mode -->
+		<button id="dark-mode-toggle">Toggle Dark Mode</button>
+
+		<!-- add some example content -->
+		<h1>My Website</h1>
+		<p>Welcome to my website! This is some example content.</p>
+		<script>
+			// get references to the button and body elements
+			const toggleButton = document.getElementById('dark-mode-toggle');
+			const body = document.body;
+
+			// set up a click event listener for the toggle button
+			toggleButton.addEventListener('click', () => {
+				// toggle the "dark-mode" class on the body element
+				body.classList.toggle('dark-mode');
+			});
+		</script>
+		<!-- add some CSS to style the dark mode -->
+		<style>
+			/* default styles */
+			h1 {
+				color: black;
+			}
+			p {
+				color: black;
+			}
+			a {
+				color: black;
+			}
+			
+			/* dark mode styles */
+			body.dark-mode {
+				background-color: black;
+			}
+			body.dark-mode h1 {
+				color: white;
+			}
+			body.dark-mode p {
+				color: white;
+			}
+			body.dark-mode a {
+				color: white;
+			}
+		</style>
+	</main>
+</body>
+</html>
