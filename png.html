@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clickable PNG Image Example</title>
+	<script>
+		var imgWidth = 1000; // Initial image width
+		var imgHeight = 600; // Initial image height
+
+		function enlargeImage() {
+			imgWidth += 50; // Increase image width by 50 pixels
+			imgHeight += 50; // Increase image height by 50 pixels
+			document.getElementById("clickable-image").style.width = imgWidth + "px"; // Set new width value for the image
+			document.getElementById("clickable-image").style.height = imgHeight + "px"; // Set new height value for the image
+		}
+	</script>
+</head>
+<body>
+	<h1>HONSE</h1>
+	<a href="#" onclick="enlargeImage()"><img src="https://cdn.discordapp.com/attachments/1080079517340684308/1091438470129533120/HONSE.png" alt="Clickable Image" id="clickable-image" width="1000" height="600"></a>
+</body>
+</html>
