@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Dice Generator</title>
+  </head>
+  <body>
+    <h1>Random Dice Generator</h1>
+    <p>The generated number is:</p>
+    <div id="result">
+      <!-- the result will be displayed here -->
+    </div>
+    <button onclick="rollDice()">Roll the Dice</button>
+    
+    <script>
+      function rollDice() {
+        // generate a random number between 1 and 6
+        const num = Math.floor(Math.random() * 6) + 1;
+        
+        // display the result
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `
+          <p>${num}</p>
+          <img src="dice/dice${num}.png" alt="dice ${num}">
+        `;
+      }
+    </script>
+  </body>
+</html>

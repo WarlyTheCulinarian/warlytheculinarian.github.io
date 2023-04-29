@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slot Machine</title>
+    <style>
+        #slot-machine {
+            width: 300px;
+            height: 300px;
+            background-color: #333;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .reel {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        button {
+            background-color: #ffcc00;
+            border: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #payout {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="slot-machine">
+        <div class="reel" id="reel1">7</div>
+        <div class="reel" id="reel2">7</div>
+        <div class="reel" id="reel3">7</div>
+    </div>
+    <button id="spin-button">Spin</button>
+    <div id="payout"></div>
+    <script>
+        // define the symbols and their corresponding payouts
+        var symbols = ['cherry', 'lemon', 'orange', 'plum', 'bell', 'bar', 'seven'];
+        var payouts = {'cherry': 2, 'lemon': 3, 'orange': 4, 'plum': 5, 'bell': 10, 'bar': 20, 'seven': 50};
+        
+    // define the spin function
+    function spin() {
+        // get a random symbol for each reel
+        var symbol1 = symbols[Math.floor(Math.random() * symbols.length)];
+        var symbol2 = symbols[Math.floor(Math.random() * symbols.length)];
+        var symbol3 = symbols[Math.floor(Math.random() * symbols.length)];
+
+        // update the symbols on the reels
+        document.getElementById('reel1').innerHTML = symbol1;
+        document.getElementById('reel2').innerHTML = symbol2;
+        document.getElementById('reel3').innerHTML = symbol3;
+
+        // calculate the payout
+        var payout = 0;
+        if (symbol1 == 'cherry' && symbol2 != 'cherry') {
+            payout = payouts['cherry'] / 2;
+        } else if (symbol1 == 'cherry' && symbol2 == 'cherry' && symbol3 != 'cherry') {
+            payout = payouts['cherry'] * 2;
+        } else if (symbol1 == 'cherry' && symbol2 == 'cherry' && symbol3 == 'cherry') {
+            payout = payouts['cherry'] * 3;
+        } else if (symbol1 == symbol2 && symbol1 == symbol3) {
+            payout = payouts[symbol1];
+        }
+
+        // display the payout on the page
+        document.getElementById('payout').innerHTML = 'Payout: $' + payout.toFixed(2);
+    }
+
+    // attach the spin function to the Spin button
+    document.getElementById('spin-button').addEventListener('click', spin);
+</script>
